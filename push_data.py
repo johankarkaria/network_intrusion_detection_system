@@ -17,6 +17,7 @@ import pymongo
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
 
+
 class NetworkDataExtract():
     def __init__(self):
         try:
@@ -49,8 +50,9 @@ class NetworkDataExtract():
             raise NetworkSecurityException(e,sys)
         
 if __name__=='__main__':
-    FILE_PATH="Network_Data\phisingData.csv"
-    DATABASE="KRISHAI"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    FILE_PATH=os.path.join(BASE_DIR, "Network_Data", "phisingData.csv")
+    DATABASE="NETWORK_DATABASE"
     Collection="NetworkData"
     networkobj=NetworkDataExtract()
     records=networkobj.csv_to_json_convertor(file_path=FILE_PATH)
