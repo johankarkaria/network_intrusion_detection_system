@@ -31,9 +31,9 @@ from urllib.parse import urlparse
 import dagshub
 dagshub.init(repo_owner='johankar555', repo_name='network_intrusion_detection_system', mlflow=True)
 
-os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/johankar555/networksecurity.mlflow"
+os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/johankar555/network_intrusion_detection_system.mlflow"
 os.environ["MLFLOW_TRACKING_USERNAME"]="johankar555"
-os.environ["MLFLOW_TRACKING_PASSWORD"]="7104284f1bb44ece21e0e2adb4e36a250ae3251f"
+os.environ["MLFLOW_TRACKING_PASSWORD"]="50646da7eb8795407d478468d1476168fa6138a1"
 
 
 
@@ -48,7 +48,7 @@ class ModelTrainer:
             raise NetworkSecurityException(e,sys)
         
     def track_mlflow(self,best_model,classificationmetric):
-        mlflow.set_registry_uri("https://dagshub.com/johanka4555/networksecurity.mlflow")
+        mlflow.set_registry_uri("https://dagshub.com/johankar555/network_intrusion_detection_system.mlflow")
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
             f1_score=classificationmetric.f1_score
@@ -178,6 +178,7 @@ class ModelTrainer:
             )
 
             model_trainer_artifact=self.train_model(x_train,y_train,x_test,y_test)
+            
             return model_trainer_artifact
 
             
