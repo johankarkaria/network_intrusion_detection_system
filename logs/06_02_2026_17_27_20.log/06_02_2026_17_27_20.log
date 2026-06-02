@@ -1,0 +1,6 @@
+[ 2026-06-02 17:27:23,802 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-02 17:27:23,807 ] 107 dagshub - INFO - Accessing as johankar555
+[ 2026-06-02 17:27:24,706 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/johankar555/network_intrusion_detection_system "HTTP/1.1 200 OK"
+[ 2026-06-02 17:27:25,479 ] 1025 httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[ 2026-06-02 17:27:25,485 ] 107 dagshub - INFO - Initialized MLflow to track repo "johankar555/network_intrusion_detection_system"
+[ 2026-06-02 17:27:25,486 ] 107 dagshub - INFO - Repository johankar555/network_intrusion_detection_system initialized!
