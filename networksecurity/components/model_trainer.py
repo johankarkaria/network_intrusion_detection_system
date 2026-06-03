@@ -28,12 +28,16 @@ from urllib.parse import urlparse
 
 # import dagshub
 #dagshub.init(repo_owner='krishnaik06', repo_name='networksecurity', mlflow=True)
+os.environ["DAGSHUB_USER_TOKEN"] = os.getenv('DAGSHUB_TOKEN')
+
 import dagshub
 dagshub.init(repo_owner='johankar555', repo_name='network_intrusion_detection_system', mlflow=True)
+
 
 os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/johankar555/network_intrusion_detection_system.mlflow"
 os.environ["MLFLOW_TRACKING_USERNAME"]="johankar555"
 os.environ["MLFLOW_TRACKING_PASSWORD"]=os.getenv("DAGSHUB_TOKEN")
+
 
 
 
