@@ -29,11 +29,11 @@ from urllib.parse import urlparse
 # import dagshub
 #dagshub.init(repo_owner='krishnaik06', repo_name='networksecurity', mlflow=True)
 import dagshub
-dagshub.init(repo_owner='johankar555', repo_name='network_intrusion_detection_system', mlflow=True)
+dagshub.init(repo_owner='johankar555', repo_name='network_intrusion_detection_system', mlflow=True, token=os.getenv("DAFGSHUB_TOKEN"))
 
 os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/johankar555/network_intrusion_detection_system.mlflow"
 os.environ["MLFLOW_TRACKING_USERNAME"]="johankar555"
-os.environ["MLFLOW_TRACKING_PASSWORD"]="50646da7eb8795407d478468d1476168fa6138a1"
+os.environ["MLFLOW_TRACKING_PASSWORD"]=os.getenv("DAGSHUB_TOKEN")
 
 
 
