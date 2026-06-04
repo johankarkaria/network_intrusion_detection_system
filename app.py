@@ -6,7 +6,7 @@ ca = certifi.where()
 
 from dotenv import load_dotenv
 load_dotenv()
-mongo_db_url = os.getenv("MONGODB_URL_KEY")
+mongo_db_url = os.getenv("MONGODB_URL")
 print(mongo_db_url)
 import pymongo
 from networksecurity.exception.exception import NetworkSecurityException
@@ -75,10 +75,12 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
         print(df['predicted_column'])
         #df['predicted_column'].replace(-1, 0)
         #return df.to_json()
+        os.makedirs('prediction_output', exist_ok=True)
         df.to_csv('prediction_output/output.csv')
         table_html = df.to_html(classes='table table-striped')
         #print(table_html)
-        return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
+        # return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
+        return templates.TemplateResponse(request=request,name="table.html", context={"table":table.html})
         
     except Exception as e:
             raise NetworkSecurityException(e,sys)
