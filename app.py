@@ -43,9 +43,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+from pathlib import Path
 from fastapi.templating import Jinja2Templates
-templates = Jinja2Templates(directory="./templates")
+BASE_DIR = Path(__file__).resolve().parent
+templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
+# templates = Jinja2Templates(directory="./templates")
 
 @app.get("/", tags=["authentication"])
 async def index():
@@ -65,9 +67,9 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
     try:
         df=pd.read_csv(file.file)
         #print(df)
-        preprocesor=load_object("final_model/preprocessor.pkl")
+        preprocessor=load_object("final_model/preprocessor.pkl")
         final_model=load_object("final_model/model.pkl")
-        network_model = NetworkModel(preprocessor=preprocesor,model=final_model)
+        network_model = NetworkModel(preprocessor=preprocessor,model=final_model)
         print(df.iloc[0])
         y_pred = network_model.predict(df)
         print(y_pred)
@@ -80,7 +82,7 @@ async def predict_route(request: Request,file: UploadFile = File(...)):
         table_html = df.to_html(classes='table table-striped')
         #print(table_html)
         # return templates.TemplateResponse("table.html", {"request": request, "table": table_html})
-        return templates.TemplateResponse(request=request,name="table.html", context={"table":table.html})
+        return templates.TemplateResponse(request=request,name="table.html", context={"table":table_html})
         
     except Exception as e:
             raise NetworkSecurityException(e,sys)
