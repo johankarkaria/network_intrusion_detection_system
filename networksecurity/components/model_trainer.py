@@ -28,8 +28,8 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 
 load_dotenv()
-# import dagshub
-#dagshub.init(repo_owner='krishnaik06', repo_name='networksecurity', mlflow=True)
+
+
 os.environ["DAGSHUB_USER_TOKEN"] = os.getenv('DAGSHUB_TOKEN')
 
 import dagshub
