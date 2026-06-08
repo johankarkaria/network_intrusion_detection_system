@@ -528,7 +528,7 @@ docker build -t networksecurity .
 
 **Run the container:**
 ```bash
-docker run -p 8000:8000 \
+docker run -p 8080:8000 \
   --env-file .env \
   networksecurity
 ```
