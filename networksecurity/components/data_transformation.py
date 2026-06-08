@@ -33,7 +33,8 @@ class DataTransformation:
             return pd.read_csv(file_path)
         except Exception as e:
             raise NetworkSecurityException(e, sys)
-        
+
+    
     def get_data_transformer_object(cls)->Pipeline:
         """
         It initialises a KNNImputer object with the parameters specified in the training_pipeline.py file
