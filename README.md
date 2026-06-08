@@ -31,7 +31,7 @@
 
 ## Project Overview
 
-The **Network Intrusion Detection System** is a fully production-grade, end-to-end Machine Learning and MLOps solution engineered to identify malicious network activities and cyber threats using advanced supervised learning techniques.
+The **Network Intrusion Detection System** is an end-to-end Machine Learning and MLOps solution engineered to identify malicious network activities and cyber threats using advanced supervised learning techniques.
 
 This system goes far beyond conventional notebook-based prototypes. Every stage of the machine learning lifecycle — from raw data ingestion to cloud deployment — is architected as an **independent, modular, and reusable component**, following the highest standards of software engineering and MLOps maturity.
 
